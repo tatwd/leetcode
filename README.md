@@ -1,2 +1,3 @@
 # leetcode
-playing in LeetCode
+
+Coding on [LeetCode](https://leetcode.com/problemset/all/).
