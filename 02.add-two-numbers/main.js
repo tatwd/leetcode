@@ -13,10 +13,10 @@ ListNode.prototype.nextTo = function(next) {
 };
 
 /**
-* @param {ListNode} l1
-* @param {ListNode} l2
-* @return {ListNode}
-*/
+ * @param {ListNode} l1
+ * @param {ListNode} l2
+ * @return {ListNode}
+ */
 const addTwoNumbers = function(l1, l2) {
   let res = new ListNode(0);
   let temp = res;
