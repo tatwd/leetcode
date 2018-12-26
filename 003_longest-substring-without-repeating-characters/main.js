@@ -3,35 +3,28 @@
  * @return {number}
  */
 const lengthOfLongestSubstring = function(s) {
-  // return s
-  //   .split('')
-  //   .reduce((arr, item) => {
-  //     if (!arr.includes(item))
-  //       arr.push(item);
-  //     return arr;
-  //   }, []).length;
-  // let i, j, len, map = {};
-  // let start = 0, end = 0;
-  // for (i = 0, j = 0, len =  s.length; i < len; ++i) {
-  //   start = j;
-  //   if (map[s[i]])
-  //     j = map[s[i]];
-  //   else
-  //     map[s[i]] = i;
-  // }
-  // end = j;
-  // return s.slice(start, end);
-
-  /*
-   * solution 1 - use Map
-   */
-  let map = new Map();
-  let res = 0;
-
-  // todo
-
-  return res;
+  var set = new Set();
+  var result = 0;
+  var current = 0;
+  for (var c of s) {
+    if (set.has(c)) {
+      result = Math.max(result, current);
+      set.clear();
+      current = 0;
+    }
+    set.add(c);
+    current++;
+  }
+  return result;
 };
 
-let result = lengthOfLongestSubstring("abcabcbb");
-console.log(result);
+var data = [
+  "abcabcbb",
+  "bbbbb",
+  "pwwkew"
+]
+for (var s of data) {
+  let result = lengthOfLongestSubstring(s);
+  console.log(result);
+}
+
