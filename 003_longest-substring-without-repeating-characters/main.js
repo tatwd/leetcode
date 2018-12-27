@@ -2,29 +2,31 @@
  * @param {string} s
  * @return {number}
  */
-const lengthOfLongestSubstring = function(s) {
-  var set = new Set();
+var lengthOfLongestSubstring = function(s) {
+  // Solution 1
+  var chars = [];
   var result = 0;
-  var current = 0;
-  for (var c of s) {
-    if (set.has(c)) {
-      result = Math.max(result, current);
-      set.clear();
-      current = 0;
+  for (var i = 0, len = s.length; i < len; ++i) {
+    var index = chars.indexOf(s[i])
+    if (index !== -1) {
+      chars = chars.slice(index + 1);
     }
-    set.add(c);
-    current++;
+    chars.push(s[i]);
+    result = Math.max(result, chars.length);
   }
   return result;
 };
 
 var data = [
-  "abcabcbb",
-  "bbbbb",
-  "pwwkew"
-]
-for (var s of data) {
-  let result = lengthOfLongestSubstring(s);
-  console.log(result);
+  { s: '', result: 0 },
+  { s: ' ', result: 1 },
+  { s: 'dvdf', result: 3 },
+  { s: 'ckilbkd', result: 5 },
+  { s: 'abcabcbb', result: 3 },
+  { s: 'bbbbb', result: 1 },
+  { s: 'pwwkew', result: 3 }
+];
+for (var i of data) {
+  let result = lengthOfLongestSubstring(i.s);
+  console.log(result, result === i.result);
 }
-
