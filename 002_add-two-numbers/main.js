@@ -4,54 +4,64 @@
 function ListNode(val) {
   this.val = val;
   this.next = null;
-};
-
-ListNode.prototype.nextTo = function(next) {
-  if (next instanceof ListNode)
-    this.next = next;
-  return this;
-};
+}
 
 /**
  * @param {ListNode} l1
  * @param {ListNode} l2
  * @return {ListNode}
  */
-const addTwoNumbers = function(l1, l2) {
-  let res = new ListNode(0);
-  let temp = res;
-  let [_l1, _l2] = [l1, l2];
-  let sum = 0;
+var addTwoNumbers = function(l1, l2) {
+  var res = new ListNode(0);
+  var pl1 = l1, pl2 = l2, current = res;
+  var sum = 0;
 
-  while (_l1 && _l2) {
-    if (!isNaN(_l1.val)) {
-      sum += _l1.val;
-      _l1 = _l1.next;
-    }
+  while (pl1 || pl2) {
+    sum += (pl1 && pl1.val) || 0;
+    sum += (pl2 && pl2.val) || 0;
 
-    if (!isNaN(_l2.val)) {
-      sum += _l2.val;
-      _l2 = _l2.next;
-    }
+    pl1 = pl1 && pl1.next;
+    pl2 = pl2 && pl2.next;
 
-    temp.next = new ListNode(sum % 10);
-    temp = temp.next;
+    current.next = new ListNode(sum % 10);
+    current = current.next;
+
+    // 取十位上的整数
     sum = (sum / 10) ^ 0;
   }
-
-  if (sum === 1)
-    temp.next = new ListNode(1);
-
+  sum === 1 && (current.next = new ListNode(1));
   return res.next;
 };
 
-// 2 -> 4 -> 3
-let l1 = new ListNode(2).nextTo(
-  new ListNode(4).nextTo(new ListNode(3)));
+// 测试
+var data = [
+  { l1: arr2list([2, 4, 3]), l2: arr2list([5, 6, 6]) },
+  { l1: arr2list([2,4,3]), l2: arr2list([5,4]) }
+];
+for (var i of data) {
+  let result = addTwoNumbers(i.l1, i.l2);
+  console.log(list2arr(result));
+}
+// [7, 0, 0, 1]
+// [7, 8, 3]
 
-// 5 -> 6 -> 6
-let l2 = new ListNode(5).nextTo(
-  new ListNode(6).nextTo(new ListNode(6)));
+function arr2list(arr) {
+  if (!arr.length) return null;
+  var list = new ListNode(arr[0]);
+  var p = list;
+  for (var i = 1, l = arr.length; i < l; ++i) {
+    p.next = new ListNode(arr[i])
+    p = p.next;
+  }
+  return list;
+}
 
-let result = addTwoNumbers(l1, l2);
-console.log(JSON.stringify(result));
+function list2arr(list) {
+  var arr = [];
+  var p = list;
+  while (p) {
+    arr.push(p.val);
+    p = p.next;
+  }
+  return arr;
+}
