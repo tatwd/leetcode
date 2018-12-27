@@ -1,6 +1,6 @@
-## 03. Longest Substring Without Repeating Characters 无重复字符的最长子串
+## 3. Longest Substring Without Repeating Characters 无重复字符的最长子串
 
-### Desc
+### Description
 
 Given a string, find the length of the longest substring without repeating characters.
 
