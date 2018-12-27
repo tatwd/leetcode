@@ -2,8 +2,8 @@ package main
 
 import "fmt"
 
-func twoSum(nums []int, target int) [2]int {
-	res := [2]int{-1, -1}
+func twoSum(nums []int, target int) []int {
+	res := []int{-1, -1}
 	numsMap := make(map[int]int)
 	for i := 0; i < len(nums); i++ {
 		if v, ok := numsMap[target-nums[i]]; ok {
