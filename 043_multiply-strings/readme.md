@@ -1,4 +1,4 @@
-## 43. Multiply Strings
+## 43. Multiply Strings 字符串相乘
 
 [中文](https://leetcode-cn.com/problems/multiply-strings/) | [EN](https://leetcode.com/problems/multiply-strings/)
 
