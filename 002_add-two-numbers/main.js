@@ -1,10 +1,4 @@
-/**
- * Definition for singly-linked list.
- */
-function ListNode(val) {
-  this.val = val;
-  this.next = null;
-}
+var { ListNode, utils } = require('../dtype');
 
 /**
  * @param {ListNode} l1
@@ -35,33 +29,12 @@ var addTwoNumbers = function(l1, l2) {
 
 // 测试
 var data = [
-  { l1: arr2list([2, 4, 3]), l2: arr2list([5, 6, 6]) },
-  { l1: arr2list([2,4,3]), l2: arr2list([5,4]) }
+  { l1: utils.arr2list([2, 4, 3]), l2: utils.arr2list([5, 6, 6]) },
+  { l1: utils.arr2list([2,4,3]), l2: utils.arr2list([5,4]) }
 ];
 for (var i of data) {
   let result = addTwoNumbers(i.l1, i.l2);
-  console.log(list2arr(result));
+  console.log(utils.list2arr(result));
 }
 // [7, 0, 0, 1]
 // [7, 8, 3]
-
-function arr2list(arr) {
-  if (!arr.length) return null;
-  var list = new ListNode(arr[0]);
-  var p = list;
-  for (var i = 1, l = arr.length; i < l; ++i) {
-    p.next = new ListNode(arr[i])
-    p = p.next;
-  }
-  return list;
-}
-
-function list2arr(list) {
-  var arr = [];
-  var p = list;
-  while (p) {
-    arr.push(p.val);
-    p = p.next;
-  }
-  return arr;
-}
