@@ -22,7 +22,7 @@ int* twoSum(int* nums, int numsSize, int target)
     return res;
 }
 
-
+/* 测试 */
 int main()
 {
     int nums[] = {2, 7, 11, 15};
