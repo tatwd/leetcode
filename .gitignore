@@ -1,3 +1,4 @@
 *.exe
 *.*dump
 tmp/
+.vscode/
