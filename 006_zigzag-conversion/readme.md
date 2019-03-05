@@ -7,9 +7,9 @@
 比如输入字符串为 `"LEETCODEISHIRING"` 行数为 3 时，排列如下：
 
 ```
-P   A   H   N
-A P L S I I G
-Y   I   R
+L   C   I   R
+E T O E S I I G
+E   D   H   N
 ```
 
 之后，你的输出需要从左往右逐行读取，产生出一个新的字符串，比如：`"LCIRETOESIIGEDHN"`。
