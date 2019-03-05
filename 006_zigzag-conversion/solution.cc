@@ -7,9 +7,8 @@ public:
     std::string convert(std::string s, int numRows) {
         if (numRows == 1) return s;
 
-        int len = s.size();
         std::vector<std::string> vec(
-            std::min( numRows,  len)
+            std::min( numRows,  int(s.size()) )
         );
         int row = 0;
         bool godown = false;
