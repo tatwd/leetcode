@@ -3,6 +3,7 @@
  * @return {string}
  */
 var intToRoman = function(num) {
+  if (num <= 0) return '';
   var map = [
     ['I', 1],
     ['IV', 4],
@@ -18,21 +19,17 @@ var intToRoman = function(num) {
     ['CM', 900],
     ['M', 1000]
   ];
-  var last = '';
+  var last = [], k, v;
   for (var i = 0, len = map.length; i < len; i++) {
-    var k = map[i][0];
-    var v = map[i][1];
-    if (num === v) return k;
-    if (num < v) {
-      return last + intToRoman(num - map[last]);
-    } else {
-      // FIXED
-      // if (i === len - 1)
-      //   return k + intToRoman(num - v);
-    }
-    last = k;
+    k = map[i][0]
+    v = map[i][1]
+    if (num < v) break;
+    last = [k, v];
+    if (num === v) break;
   }
+  return last[0] + intToRoman(num - last[1]);
 };
+
 // 测试
 var data = [
   { input: 3, output: 'III' },
