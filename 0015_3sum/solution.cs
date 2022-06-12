@@ -26,6 +26,9 @@ public class Solution {
                 for (; k > j; k--) {
                     var c = nums[k];
 
+                    // if (k != nums.Length - 1 && nums[k] == nums[k + 1])
+                    //     continue;
+
                     if (b + c < target)
                         break; // 此时需要去增大 b 值
 
