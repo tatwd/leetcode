@@ -1,3 +1,5 @@
+// import { expect } from "jsr:@std/expect";
+
 /**
  * @param {number[]} nums
  * @param {number} k
@@ -20,9 +22,8 @@ var reserve = function (nums, start, end) {
   }
 };
 
-// [1, 2, 3, 4, 5, 6, 7]
-//     6  7     2  3
-
-// var arr = [1, 2, 3, 4, 5, 6, 7];
-// rotate(arr, 3);
-// console.log(arr);
+// Deno.test("test cases", () => {
+//   var arr = [1, 2, 3, 4, 5, 6, 7];
+//   rotate(arr, 3);
+//   expect(arr).toEqual([5, 6, 7, 1, 2, 3, 4]);
+// });
